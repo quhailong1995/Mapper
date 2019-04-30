@@ -70,7 +70,7 @@ public class Generator {
     }
 
     public static void main(String[] args) throws Exception {
-        startDB();
+        //startDB();
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
         ConfigurationParser cp = new ConfigurationParser(warnings);
