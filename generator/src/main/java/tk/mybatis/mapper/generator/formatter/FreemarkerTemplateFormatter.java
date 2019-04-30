@@ -33,6 +33,7 @@ import tk.mybatis.mapper.generator.model.TableClass;
 
 import java.io.StringWriter;
 import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -80,6 +81,7 @@ public class FreemarkerTemplateFormatter implements TemplateFormatter, ListTempl
         params.put("props", properties);
         params.put("package", targetPackage);
         params.put("tableClass", tableClass);
+        params.put("generateDate", new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date()));//生成时间
         return process(properties.getProperty("templatePath"), templateContent, params);
     }
 
