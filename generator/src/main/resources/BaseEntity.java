@@ -25,6 +25,8 @@ public class BaseEntity implements Serializable {
 	private String crtBy;// 创建人
 	private String updBy;// 编辑人
 	@Transient
+	private String ids;// ids
+	@Transient
 	private String sortName;// 排序字段
 	@Transient
 	private String sortType = "asc";// 排序方式 asc desc
