@@ -2,11 +2,17 @@ package ${package};
 
 import ${tableClass.fullClassName};
 import org.springframework.util.StringUtils;
+import tk.mybatis.mapper.code.Style;
+import tk.mybatis.mapper.entity.Example;
+import tk.mybatis.mapper.util.StringUtil;
+import tk.mybatis.mapper.weekend.Weekend;
+import tk.mybatis.mapper.weekend.WeekendCriteria;
+import java.util.List;
 
 /**
  * create by yeah.一页 ${generateDate}
  */
-public interface ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServiceService<${tableClass.shortClassName}> implements ${tableClass.shortClassName}Service {
+public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServiceService<${tableClass.shortClassName}> implements ${tableClass.shortClassName}Service {
 
     @Override
     public int addOrUpdate(${tableClass.shortClassName} entity, String operator) throws Exception {
@@ -39,7 +45,7 @@ public interface ${tableClass.shortClassName}${serviceImplSuffix} extends BaseSe
                 criteria.andEqualTo(${tableClass.shortClassName}::getId,entity.getId());
             }
             if(StringUtils.hasText(entity.getCode())){
-                criteria.andLike(${tableClass.shortClassName}::getCode,entity.getCode());
+                criteria.andLike(${tableClass.shortClassName}::getCode,"%"+entity.getNm().trim()+"%");
             }
             if(StringUtils.hasText(entity.getName())){
                 criteria.andLike(${tableClass.shortClassName}::getName,entity.getName());
