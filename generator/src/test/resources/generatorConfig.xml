@@ -93,19 +93,50 @@
 
 
         <!--静态文件-->
-
+        <!--index-->
         <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
             <property name="targetProject" value="generator/src/test/java/staticPage"/>
             <property name="targetPackage" value="html.${tableClass.variableName}"/>
-            <property name="templatePath" value="generator/staticPage1/example.ftl"/>
+            <property name="templatePath" value="generator/staticPage1/page/example.ftl"/>
             <property name="fileNameSuffix" value=""/>
             <property name="fileName" value="${tableClass.variableName}${fileNameSuffix}.html"/>
         </plugin>
         <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
             <property name="targetProject" value="generator/src/test/java/staticPage"/>
             <property name="targetPackage" value="js.${tableClass.variableName}"/>
-            <property name="templatePath" value="generator/staticPage1/example-js.ftl"/>
+            <property name="templatePath" value="generator/staticPage1/js/example.ftl"/>
             <property name="fileNameSuffix" value=""/>
+            <property name="fileName" value="${tableClass.variableName}${fileNameSuffix}.js"/>
+        </plugin>
+        <!--form-->
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="generator/src/test/java/staticPage"/>
+            <property name="targetPackage" value="html.${tableClass.variableName}"/>
+            <property name="templatePath" value="generator/staticPage1/page/example-form.ftl"/>
+            <property name="fileNameSuffix" value="-form"/>
+            <property name="fileName" value="${tableClass.variableName}${fileNameSuffix}.html"/>
+        </plugin>
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="generator/src/test/java/staticPage"/>
+            <property name="targetPackage" value="js.${tableClass.variableName}"/>
+            <property name="templatePath" value="generator/staticPage1/js/example-form.ftl"/>
+            <property name="fileNameSuffix" value="-form"/>
+            <property name="fileName" value="${tableClass.variableName}${fileNameSuffix}.js"/>
+        </plugin>
+        <!--info-->
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="generator/src/test/java/staticPage"/>
+            <property name="targetPackage" value="html.${tableClass.variableName}"/>
+            <property name="templatePath" value="generator/staticPage1/page/example-info.ftl"/>
+            <property name="fileNameSuffix" value="-info"/>
+            <property name="fileName" value="${tableClass.variableName}${fileNameSuffix}.html"/>
+        </plugin>
+
+        <plugin type="tk.mybatis.mapper.generator.TemplateFilePlugin">
+            <property name="targetProject" value="generator/src/test/java/staticPage"/>
+            <property name="targetPackage" value="js.${tableClass.variableName}"/>
+            <property name="templatePath" value="generator/staticPage1/js/example-info.ftl"/>
+            <property name="fileNameSuffix" value="-info"/>
             <property name="fileName" value="${tableClass.variableName}${fileNameSuffix}.js"/>
         </plugin>
 

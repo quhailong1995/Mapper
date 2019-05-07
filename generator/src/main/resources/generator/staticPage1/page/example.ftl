@@ -43,7 +43,7 @@
                         </th>
                     <#if tableClass.baseFields??>
                         <#list tableClass.allFields as field>
-                        <th ui-order-column="${field.fieldName}" style="text-align: center">${field.remarks}</th>
+                        <th ui-order-column="${field.fieldName}" <#--style="text-align: center"-->>${field.remarks}</th>
                         </#list>
                     </#if>
                         <th>操作</th>
