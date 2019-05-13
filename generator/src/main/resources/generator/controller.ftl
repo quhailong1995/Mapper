@@ -7,8 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ${tableClass.fullClassName};
 
+<#assign dateTime = .now>
+/**
+* create by yeah.一页 ${dateTime?string["yyyy/MM/dd HH:mm:ss"]}
+*/
 @RestController
-@RequestMapping("/temp/${tableClass.variableName}/")
+@RequestMapping("/+/${tableClass.variableName}/")
 public class ${tableClass.shortClassName}Controller {
 
     @Reference
@@ -33,8 +37,14 @@ public class ${tableClass.shortClassName}Controller {
     public R<Object> edit(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
         return R.success(${tableClass.variableName}Service.addOrUpdate(entity, YUISecurityUtils.getUsername()));
     }
+
     @RequestMapping(value = "del" , method = RequestMethod.GET)
     public R<Object> del(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
+        return R.success(${tableClass.variableName}Service.updateByExample(entity));
+    }
+
+    @RequestMapping(value = "/update" , method = RequestMethod.POST)
+    public R<Object> update(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
         return R.success(${tableClass.variableName}Service.updateByExample(entity));
     }
 }

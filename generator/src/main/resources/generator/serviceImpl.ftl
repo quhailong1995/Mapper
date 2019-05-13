@@ -52,7 +52,7 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
             }
             if(StringUtils.hasText(entity.getIds())){
             List<Object>list=Arrays.asList(entity.getIds().split("\\,")).stream().filter(Objects::nonNull).map(Long::valueOf).collect(Collectors.toList());
-                criteria.andNotIn(${tableClass.shortClassName}::getId,list);
+                criteria.andIn(${tableClass.shortClassName}::getId,list);
             }
         }
         criteria.andEqualTo(${tableClass.shortClassName}::getEditFlag,0);

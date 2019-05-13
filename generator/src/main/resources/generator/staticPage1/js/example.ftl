@@ -4,7 +4,7 @@
      */
     var _this = this,
         pageUrl = window.actionPath + '--/${tableClass.variableName}/page',
-        delUrl = window.actionPath + '--/${tableClass.variableName}/del',
+        delUrl = window.actionPath + '--/${tableClass.variableName}/update',
         exportUrl = window.actionPath + '--/${tableClass.variableName}/export',
         formHtmlUrl = window.actionPath + 'view/--/vipCategory/${tableClass.variableName}-form.html',
         infoHtmlUrl = window.actionPath + 'view/--/vipCategory/${tableClass.variableName}-info.html',

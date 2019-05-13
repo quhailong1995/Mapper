@@ -41,6 +41,36 @@
                         </div>
                     </#list>
                 </#if>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">分类<span class="required"> * </span></label>
+                                    <div class="col-md-9">
+                                        <div class="show-error" >
+                                            <select class="form-control" placeholder="分类" name="catCd" v-model="data.catCd">
+                                                <option v-for="item in catCodes" v-bind:value="item.cd">
+                                                    {{ item.nm }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">是否<span class="required"> * </span></label>
+                                    <div class="col-md-9">
+                                        <div class="show-error" >
+                                            <select class="form-control" placeholder="是否" id="hasBig" name="hasBig" v-model="data.hasBig" @change="isBigChg(data.hasBig)">
+                                                <option value="1">是</option>
+                                                <option value="0">否</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-actions">
                         <div class="row">
