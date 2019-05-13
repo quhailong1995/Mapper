@@ -61,4 +61,9 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
                 Style.camelhump));
         return weekend;
     }
+
+    @Override
+    public int updateByExample(${tableClass.shortClassName} entity){
+        return mapper.updateByExampleSelective(entity,getExample(entity));
+    }
 }
