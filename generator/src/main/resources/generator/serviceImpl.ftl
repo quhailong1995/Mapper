@@ -37,6 +37,12 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
     }
 
     @Override
+    public OnlinePersVo selectOne(${tableClass.shortClassName} entity) throws Exception {
+        List<${tableClass.shortClassName}> list = getList(entity);
+        return !list.isEmpty()?list.get(0):null;
+    }
+
+    @Override
     public Example getExample(${tableClass.shortClassName} entity) {
         Weekend<${tableClass.shortClassName}> weekend = Weekend.of(${tableClass.shortClassName}.class);
         WeekendCriteria<${tableClass.shortClassName},Object> criteria= weekend.weekendCriteria();
@@ -45,10 +51,10 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
                 criteria.andEqualTo(${tableClass.shortClassName}::getId,entity.getId());
             }
             if(StringUtils.hasText(entity.getCode())){
-                criteria.andLike(${tableClass.shortClassName}::getCode,"%"+entity.getNm().trim()+"%");
+                criteria.andEqualTo(${tableClass.shortClassName}::getCode,entity.getNm().trim());
             }
             if(StringUtils.hasText(entity.getName())){
-                criteria.andLike(${tableClass.shortClassName}::getName,entity.getName());
+                criteria.andLike(${tableClass.shortClassName}::getName,"%"+entity.getName()+"%");
             }
             if(StringUtils.hasText(entity.getIds())){
             List<Object>list=Arrays.asList(entity.getIds().split("\\,")).stream().filter(Objects::nonNull).map(Long::valueOf).collect(Collectors.toList());

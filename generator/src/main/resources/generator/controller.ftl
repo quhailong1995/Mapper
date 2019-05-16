@@ -39,12 +39,17 @@ public class ${tableClass.shortClassName}Controller {
     }
 
     @RequestMapping(value = "del" , method = RequestMethod.GET)
-    public Object del(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
-        return R.success(${tableClass.variableName}Service.updateByExample(entity));
+    public Object del(String ids) throws Exception {
+        return R.success(${tableClass.variableName}Service.delByIds(ids,${tableClass.shortClassName}.class));
     }
 
     @RequestMapping(value = "/update" , method = RequestMethod.POST)
     public Object update(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
         return R.success(${tableClass.variableName}Service.updateByExample(entity));
+    }
+
+    @RequestMapping(value = "get" , method = RequestMethod.GET)
+    public Object get(${tableClass.shortClassName} entity) throws Exception {
+        return R.success(${tableClass.variableName}Service.selectOne(entity));
     }
 }
