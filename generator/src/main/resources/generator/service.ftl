@@ -7,6 +7,7 @@ import ${tableClass.fullClassName};
  */
 public interface ${tableClass.shortClassName}${serviceSuffix} extends BaseService<${tableClass.shortClassName}> {
     int updateByExample(${tableClass.shortClassName} entity);
+    int deleteByExample(${tableClass.shortClassName} entity);
 }
 
 

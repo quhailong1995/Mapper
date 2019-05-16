@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * create by yeah.一页 ${generateDate}
  */
+@Service(interfaceClass=${tableClass.shortClassName})
 public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServiceService<${tableClass.shortClassName}> implements ${tableClass.shortClassName}Service {
 
     @Override
@@ -37,7 +38,7 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
     }
 
     @Override
-    public OnlinePersVo selectOne(${tableClass.shortClassName} entity) throws Exception {
+    public ${tableClass.shortClassName} selectOne(${tableClass.shortClassName} entity) throws Exception {
         List<${tableClass.shortClassName}> list = getList(entity);
         return !list.isEmpty()?list.get(0):null;
     }
@@ -71,5 +72,10 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
     @Override
     public int updateByExample(${tableClass.shortClassName} entity){
         return mapper.updateByExampleSelective(entity,getExample(entity));
+    }
+
+    @Override
+    public int deleteByExample(${tableClass.shortClassName} entity) {
+        return mapper.deleteByExample(getExample(entity));
     }
 }
