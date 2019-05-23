@@ -69,6 +69,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">有效期</label>
+                                    <div class="col-md-9">
+                                        <div class="show-error input-group date form_datetime" >
+                                            <input type="text" class="form-control" placeholder="" id="validityDate" name="validityDate" v-model="data.validityDate" readonly>
+                                            <span class="input-group-btn">
+                                                    <button class="btn default date-set" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>

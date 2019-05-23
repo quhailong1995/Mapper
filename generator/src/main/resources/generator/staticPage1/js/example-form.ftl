@@ -28,7 +28,7 @@
                 })
             },
             edit: function() {
-
+                 //bssVue.data.validityDate = $('#validityDate').val();时间需要特别处理
                 Common.postRemote({
                     url: editUrl,
                     data: JSON.stringify(bssVue.data),
