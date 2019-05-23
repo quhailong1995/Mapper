@@ -56,6 +56,6 @@
     </div>
 <!--#include file="/view/tpl/script-beg.shtml"-->
 <!--#include file="/view/tpl/script-end.shtml"-->
-<script src="<!--#echo var='actionPath' -->js/--------/${tableClass.variableName}.js" type="text/javascript"></script>
+<script src="<!--#echo var='actionPath' -->js/--------/${tableClass.variableName}/${tableClass.variableName}.js" type="text/javascript"></script>
 <!--#include file="/view/tpl/content-end.shtml"-->
                                                                               

@@ -64,7 +64,7 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
         }
         criteria.andEqualTo(${tableClass.shortClassName}::getEditFlag,0);
         weekend.setOrderByClause(StringUtil.convertByStyle(
-                StringUtils.isEmpty(entity.getSortField())?"111 asc":(entity.getSortField().trim() + " "+entity.getSortType()),
+                StringUtils.isEmpty(entity.getSortName())?"111 asc":(entity.getSortField().trim() + " "+entity.getSortType()),
                 Style.camelhump));
         return weekend;
     }

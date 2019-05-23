@@ -43,7 +43,7 @@ public class ${tableClass.shortClassName}Controller {
         return R.success(${tableClass.variableName}Service.delByIds(ids,${tableClass.shortClassName}.class));
     }
 
-    @RequestMapping(value = "/update" , method = RequestMethod.POST)
+    @RequestMapping(value = "update" , method = RequestMethod.POST)
     public Object update(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
         return R.success(${tableClass.variableName}Service.updateByExample(entity));
     }
