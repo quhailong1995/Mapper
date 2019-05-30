@@ -10,7 +10,7 @@ import tk.mybatis.mapper.weekend.WeekendCriteria;
 import java.util.List;
 
 /**
- * create by yeah.一页 ${generateDate}
+ * create by |yeah.一页|qq->1324459373| ${generateDate}
  */
 @Service(interfaceClass=${tableClass.shortClassName})
 public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServiceService<${tableClass.shortClassName}> implements ${tableClass.shortClassName}Service {

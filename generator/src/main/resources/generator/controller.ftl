@@ -9,7 +9,7 @@ import ${tableClass.fullClassName};
 
 <#assign dateTime = .now>
 /**
-* create by yeah.一页 ${dateTime?string["yyyy/MM/dd HH:mm:ss"]}
+* create by |yeah.一页|qq->1324459373| ${dateTime?string["yyyy/MM/dd HH:mm:ss"]}
 */
 @RestController
 @RequestMapping("/+/${tableClass.variableName}/")
