@@ -70,8 +70,8 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
     }
 
     @Override
-    public int updateByExample(${tableClass.shortClassName} entity){
-        return mapper.updateByExampleSelective(entity,getExample(entity));
+    public int updateByExample(${tableClass.shortClassName} entity, ${tableClass.shortClassName} exampleEntity){
+        return mapper.updateByExampleSelective(entity,getExample(exampleEntity));
     }
 
     @Override
