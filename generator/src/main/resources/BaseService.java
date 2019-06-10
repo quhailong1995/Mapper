@@ -1,11 +1,11 @@
-package yui.bss.mgr.base.online.v2;
+package yui.bss.baoyin.mgr.ext;
 
 import tk.mybatis.mapper.entity.Example;
-import yui.comn.utils.Page;
+import yui.comn.utils.MyPage;
 
 import java.util.List;
 public interface BaseService<T> {
-	/** 
+	/**
 	 * 根据主键查询数据
 	 * @param key 主键
 	 * @return T
@@ -41,13 +41,13 @@ public interface BaseService<T> {
 	int add(T entity)throws Exception;
 	/**
 	 * 新增或修改数据
-	 * @param entity 操作实体 
+	 * @param entity 操作实体
 	 * @param oerator 操作人
 	 * @return int
 	 * @throws Exception
 	 */
 	int addOrUpdate(T entity, String oerator)throws Exception;
-	
+
 	/**
 	 * 更新
 	 * @param entity 编辑对象
@@ -91,8 +91,8 @@ public interface BaseService<T> {
 	 * @return PageInfo<T>
 	 * @throws Exception
 	 */
-	Page<T>selectByPage(Page<T> page, T entity)throws Exception;
-	
+	MyPage<T> selectByPage(MyPage<T> page, T entity)throws Exception;
+
 	/**
 	 * 分页查询数据
 	 * @param page 分页对象
@@ -100,9 +100,9 @@ public interface BaseService<T> {
 	 * @return PageInfo<T>
 	 * @throws Exception
 	 */
-	Page<T>selectByPage(Page<T> page, Example example)throws Exception;
+	MyPage<T>selectByPage(MyPage<T> page, Example example)throws Exception;
 
 
-	Page<T> getPageCommon(Page<T> page, List<T> list) ;
+	MyPage<T> getPageCommon(MyPage<T> page, List<T> list) ;
 
 }

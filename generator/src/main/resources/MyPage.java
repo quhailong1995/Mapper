@@ -12,7 +12,7 @@ import java.util.Map;
  * @author yi.yuy
  *
  */
-public class Page<T> implements Serializable{
+public class MyPage<T> implements Serializable{
 
     private static final long serialVersionUID = 4145463737270879555L;
 
@@ -26,31 +26,31 @@ public class Page<T> implements Serializable{
     
     private Map<String,?> summary;
     
-    public Page() {}
+    public MyPage() {}
     
     /** 构造方法  */
-    public Page(int pageNum, int pageSize) {
+    public MyPage(int pageNum, int pageSize) {
         setPageNum(pageNum);
         setPageSize(pageSize);
     }
     
-    public Page(int pageNum, int pageSize, Integer total) {
+    public MyPage(int pageNum, int pageSize, Integer total) {
         setPageNum(pageNum);
         setPageSize(pageSize);
         this.total = total;
     }
     
-    public Page(int pageNum, int pageSize, List<T> result) {
+    public MyPage(int pageNum, int pageSize, List<T> result) {
         setPageNum(pageNum);
         setPageSize(pageSize);
         this.result = result;
     }
 
-    public Page(List<T> result) {
+    public MyPage(List<T> result) {
         this.result = result;
     }
     
-    public Page(int pageNum, int pageSize, Integer total, List<T> result) {
+    public MyPage(int pageNum, int pageSize, Integer total, List<T> result) {
         setPageNum(pageNum);
         setPageSize(pageSize);
         this.total = total;
