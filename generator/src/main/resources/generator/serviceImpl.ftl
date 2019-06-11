@@ -13,7 +13,7 @@ import java.util.List;
  * create by |yeah.一页|qq->1324459373| ${generateDate}
  */
 @Service(interfaceClass=${tableClass.shortClassName})
-public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServiceService<${tableClass.shortClassName}> implements ${tableClass.shortClassName}Service {
+public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServiceImpl<${tableClass.shortClassName}> implements ${tableClass.shortClassName}Service {
 
     @Override
     public int addOrUpdate(${tableClass.shortClassName} entity, String operator) throws Exception {
@@ -33,7 +33,7 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
     }
 
     @Override
-    public Page<${tableClass.shortClassName}> selectByPage(Page<${tableClass.shortClassName}> page, ${tableClass.shortClassName} entity) throws Exception {
+    public MyPage<${tableClass.shortClassName}> selectByPage(MyPage<${tableClass.shortClassName}> page, ${tableClass.shortClassName} entity) throws Exception {
         return super.selectByPage(page,getExample(entity));
     }
 
@@ -48,7 +48,7 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
         Weekend<${tableClass.shortClassName}> weekend = Weekend.of(${tableClass.shortClassName}.class);
         WeekendCriteria<${tableClass.shortClassName},Object> criteria= weekend.weekendCriteria();
         if(entity!=null){
-            if(StringUtils.hasText(String.valueOf(entity.getId()))){
+            if(entity.getId()!=null){
                 criteria.andEqualTo(${tableClass.shortClassName}::getId,entity.getId());
             }
             if(StringUtils.hasText(entity.getCode())){
@@ -64,7 +64,7 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
         }
         criteria.andEqualTo(${tableClass.shortClassName}::getEditFlag,0);
         weekend.setOrderByClause(StringUtil.convertByStyle(
-                StringUtils.isEmpty(entity.getSortName())?"111 asc":(entity.getSortField().trim() + " "+entity.getSortType()),
+                StringUtils.isEmpty(entity.getSortName())?"crt_tm desc":(entity.getSortName().trim() + " "+entity.getSortType()),
                 Style.camelhump));
         return weekend;
     }
@@ -78,4 +78,6 @@ public class ${tableClass.shortClassName}${serviceImplSuffix} extends BaseServic
     public int deleteByExample(${tableClass.shortClassName} entity) {
         return mapper.deleteByExample(getExample(entity));
     }
+
+    //List<Long> labelIds = courseLabelLinkMapper.select(courseLabelLink).stream().map(CourseLabelLink::getLabelId).distinct().collect(Collectors.toList());
 }

@@ -11,7 +11,3 @@ public interface ${tableClass.shortClassName}${mapperSuffix} extends Mapper<${ta
     List<${tableClass.shortClassName}> getListJoinOther(${tableClass.shortClassName} ${tableClass.variableName});
     int updateBatch(List<${tableClass.shortClassName}> list);
 }
-
-
-
-

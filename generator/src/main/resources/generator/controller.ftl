@@ -35,7 +35,8 @@ public class ${tableClass.shortClassName}Controller {
 
     @PostMapping("edit")
     public Object edit(@RequestBody ${tableClass.shortClassName} entity) throws Exception {
-        return Res.success(${tableClass.variableName}Service.addOrUpdate(entity, YUISecurityUtils.getUsername()));
+        UserInfo userInfo = YuiSecurityUtils.getUserInfo();
+        return Res.success(${tableClass.variableName}Service.addOrUpdate(entity, userInfo!=null?userInfo.getUsername():null));
     }
 
     @GetMapping("del")
