@@ -6,21 +6,21 @@
     <select id="getListJoinOther"  parameterType="${tableClass.fullClassName}"  resultType="${tableClass.fullClassName}">
         SELECT
         <#if tableClass.allFields??>
-            <#list tableClass.allFields as field>${tableClass.tableName}.${field.columnName},</#list>
+            <#list tableClass.allFields as field>t1.${field.columnName},</#list>
         </#if>
-        FROM ${tableClass.tableName}
+        FROM ${tableClass.tableName} t1
         <where>
             and ${tableClass.tableName}.EDIT_FLAG=0
         <#if tableClass.allFields??>
          <#list tableClass.allFields as field>
-            <if test="${field.fieldName}!=null and ${field.fieldName}!=''">and ${tableClass.tableName}.${field.columnName}=<#noparse>#{</#noparse>${field.fieldName}<#noparse>}</#noparse></if><#if field.remarks??><!--${field.remarks}--></#if>
+            <if test="${field.fieldName}!=null and ${field.fieldName}!=''">and t1.${field.columnName}=<#noparse>#{</#noparse>${field.fieldName}<#noparse>}</#noparse></if><#if field.remarks??><!--${field.remarks}--></#if>
          </#list>
         </#if>
             <if test="cd!=null">and instr(t1.cd,'<#noparse>${cd}</#noparse>')</if><!-- 根据商品编码查询 -->
         </where>
         <choose>
-			<when test="sortField!=null">order by <#noparse>${sortField} ${sortType}</#noparse> </when>
-            <otherwise>order by upd_tm desc</otherwise>
+			<when test="sortName!=null">order by <#noparse>${sortName} ${sortType}</#noparse> </when>
+            <otherwise>order by crt_tm desc</otherwise>
         </choose>
     </select>
 
