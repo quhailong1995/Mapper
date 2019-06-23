@@ -53,4 +53,5 @@ public class ${tableClass.shortClassName}Controller {
     public Object get(${tableClass.shortClassName} entity) throws Exception {
         return Res.success(${tableClass.variableName}Service.selectOne(entity));
     }
-}
+}    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
+@DateTimeFormat(pattern = "yyyy-MM-dd")
