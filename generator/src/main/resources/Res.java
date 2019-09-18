@@ -35,9 +35,9 @@ public class Res<T> extends HashMap<String, Object> {
 
 	public static <T> Res<T> error(String status, String message) {
 		return new Res<T>()
-			.setSuccess(false)
+			.put("success", false)
 			.put("status", status)
-			.put("msg", message);
+			.put("message", message);
 	}
 
 	@SuppressWarnings({ "unchecked","rawtypes" })
